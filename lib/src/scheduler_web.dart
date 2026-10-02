@@ -6,6 +6,12 @@ import 'scheduler.dart';
 class WebAlarmScheduler implements AlarmScheduler {
   final Map<int, Timer> _timers = {};
   void Function(int id)? _onRing;
+  bool vibrate = true;
+
+  @override
+  void setVibrate(bool enabled) {
+    vibrate = enabled;
+  }
 
   @override
   Future<void> init(void Function(int id) onRing) async {
@@ -16,11 +22,20 @@ class WebAlarmScheduler implements AlarmScheduler {
   Future<void> upsert(AlarmItem alarm) async {
     _timers.remove(alarm.id)?.cancel();
     if (!alarm.enabled) return;
-    final when = alarm.nextFire();
+    _arm(alarm.id, alarm.nextFire());
+  }
+
+  @override
+  Future<void> scheduleAt(AlarmItem alarm, DateTime when) async {
+    _arm(alarm.id, when);
+  }
+
+  void _arm(int id, DateTime when) {
+    _timers.remove(id)?.cancel();
     final delay = when.difference(DateTime.now());
-    _timers[alarm.id] = Timer(delay.isNegative ? Duration.zero : delay, () {
-      _timers.remove(alarm.id);
-      _onRing?.call(alarm.id);
+    _timers[id] = Timer(delay.isNegative ? Duration.zero : delay, () {
+      _timers.remove(id);
+      _onRing?.call(id);
     });
   }
 

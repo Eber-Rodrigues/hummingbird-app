@@ -1,16 +1,23 @@
 class Melody {
-  const Melody(this.id, this.name, this.detail);
+  const Melody(this.id, this.name, this.detail, this.voices);
 
   final String id;
   final String name;
   final String detail;
+  final Set<String> voices;
 }
 
 const melodies = <Melody>[
-  Melody('morning_light', 'Morning Light', 'Soft and bright'),
-  Melody('ocean_breeze', 'Ocean Breeze', 'Easy and rolling'),
-  Melody('sunrise', 'Sunrise', 'Bright and steady'),
+  Melody('morning_light', 'Morning Light', 'Soft and bright', {'soprano', 'alto'}),
+  Melody('ocean_breeze', 'Ocean Breeze', 'Easy and rolling', {'alto', 'tenor'}),
+  Melody('sunrise', 'Sunrise', 'Bright and steady', {'tenor', 'bass'}),
 ];
+
+List<Melody> melodiesForVoice(String? voice) {
+  if (voice == null) return melodies;
+  final matched = melodies.where((melody) => melody.voices.contains(voice)).toList();
+  return matched.isEmpty ? melodies : matched;
+}
 
 const difficulties = ['Easy', 'Medium', 'Hard'];
 const tolerances = ['Relaxed', 'Normal', 'Strict'];
@@ -32,6 +39,7 @@ class AlarmItem {
     required this.tolerance,
     required this.enabled,
     required this.label,
+    this.snoozeMinutes = 5,
   });
 
   final int id;
@@ -43,6 +51,7 @@ class AlarmItem {
   final String tolerance;
   final bool enabled;
   final String label;
+  final int snoozeMinutes;
 
   AlarmItem copyWith({
     int? hour,
@@ -53,6 +62,7 @@ class AlarmItem {
     String? tolerance,
     bool? enabled,
     String? label,
+    int? snoozeMinutes,
   }) {
     return AlarmItem(
       id: id,
@@ -64,6 +74,7 @@ class AlarmItem {
       tolerance: tolerance ?? this.tolerance,
       enabled: enabled ?? this.enabled,
       label: label ?? this.label,
+      snoozeMinutes: snoozeMinutes ?? this.snoozeMinutes,
     );
   }
 
@@ -110,6 +121,7 @@ class AlarmItem {
         'tolerance': tolerance,
         'enabled': enabled,
         'label': label,
+        'snoozeMinutes': snoozeMinutes,
       };
 
   factory AlarmItem.fromJson(Map<String, Object?> json) {
@@ -124,8 +136,13 @@ class AlarmItem {
       tolerance: json['tolerance'] as String,
       enabled: json['enabled'] as bool,
       label: json['label'] as String,
+      snoozeMinutes: _snoozeMinutes(json['snoozeMinutes']),
     );
   }
+}
+
+int _snoozeMinutes(Object? value) {
+  return value == 2 || value == 10 ? value as int : 5;
 }
 
 String formatClock(int hour, int minute) {
@@ -172,26 +189,3 @@ List<AlarmItem> seedAlarms() {
   ];
 }
 
-/// Pitch matching is a later phase. Screens talk to this contract only.
-abstract class HummingModule {
-  Future<HummingSample> listen({required Duration maxDuration});
-}
-
-class HummingSample {
-  const HummingSample({required this.implemented, required this.message});
-
-  final bool implemented;
-  final String message;
-}
-
-class UnimplementedHummingModule implements HummingModule {
-  const UnimplementedHummingModule();
-
-  @override
-  Future<HummingSample> listen({required Duration maxDuration}) async {
-    return const HummingSample(
-      implemented: false,
-      message: 'Humming detection is ready to plug in later. This phase stops the alarm with a button.',
-    );
-  }
-}

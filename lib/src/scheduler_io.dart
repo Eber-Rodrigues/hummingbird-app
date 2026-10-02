@@ -10,6 +10,12 @@ import 'scheduler.dart';
 class NativeAlarmScheduler implements AlarmScheduler {
   StreamSubscription<dynamic>? _ringing;
   void Function(int id)? _onRing;
+  bool vibrate = true;
+
+  @override
+  void setVibrate(bool enabled) {
+    vibrate = enabled;
+  }
 
   bool get _underTest => Platform.environment.containsKey('FLUTTER_TEST');
 
@@ -32,19 +38,29 @@ class NativeAlarmScheduler implements AlarmScheduler {
       await Alarm.stop(alarm.id);
       return;
     }
-    await Alarm.set(
+    await _set(alarm, alarm.nextFire());
+  }
+
+  @override
+  Future<void> scheduleAt(AlarmItem alarm, DateTime when) async {
+    if (_underTest) return;
+    await _set(alarm, when);
+  }
+
+  Future<void> _set(AlarmItem alarm, DateTime when) {
+    return Alarm.set(
       alarmSettings: AlarmSettings(
         id: alarm.id,
-        dateTime: alarm.nextFire(),
+        dateTime: when,
         assetAudioPath: 'assets/audio/alarm.wav',
         loopAudio: true,
-        vibrate: true,
+        vibrate: vibrate,
         warningNotificationOnKill: false,
         androidFullScreenIntent: true,
         androidStopAlarmOnTermination: false,
         volumeSettings: VolumeSettings.fade(
-          volume: 0.8,
-          fadeDuration: const Duration(seconds: 4),
+          volume: 1,
+          fadeDuration: const Duration(seconds: 3),
           volumeEnforced: true,
         ),
         notificationSettings: NotificationSettings(

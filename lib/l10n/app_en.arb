@@ -1,0 +1,219 @@
+{
+  "@@locale": "en",
+  "appTitle": "Hummingbird",
+  "wakeUpMelody": "Wake up to your own melody",
+  "createAccount": "Create Account",
+  "alreadyHaveAccount": "I Already Have an Account",
+  "voiceRangeTitle": "Your voice range",
+  "testYourVoice": "Let's test your voice",
+  "skipForNow": "Skip for now",
+  "voiceTestStep": "Voice test  {current}/{total}",
+  "@voiceTestStep": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "voiceRangeBody": "Hold the pad and trace a melody. The span suggests a difficulty for later alarms.",
+  "voiceTestBody": "Hold the pad and follow the shape. A close hum can stop an alarm.",
+  "detectedRange": "Detected range",
+  "rangePending": "Hum on the pad to measure your range",
+  "recommendedDifficulty": "Recommended difficulty  ·  {difficulty}",
+  "@recommendedDifficulty": {
+    "placeholders": {
+      "difficulty": { "type": "String" }
+    }
+  },
+  "continueAction": "Continue",
+  "next": "Next",
+  "myAlarms": "My Alarms",
+  "createAlarm": "Create Alarm",
+  "noAlarms": "No alarms yet.",
+  "testRing": "Test ring",
+  "editAlarmTitle": "Edit Alarm",
+  "repeat": "Repeat",
+  "ringsOnce": "Rings once, then turns off.",
+  "repeatsOnDays": "Repeats on the selected days.",
+  "melody": "Melody",
+  "difficulty": "Difficulty",
+  "tolerance": "Tolerance",
+  "hummingSavedHint": "Difficulty sets how much of the melody you must hum. Tolerance sets how close the pitch must be. After several misses the melody gets shorter, then a shake stops the alarm.",
+  "saveAlarm": "Save Alarm",
+  "deleteAlarm": "Delete alarm",
+  "navAlarms": "Alarms",
+  "navVoice": "Voice",
+  "navProfile": "Profile",
+  "voiceHeadline": "Find your voice",
+  "voiceBody": "Hum the notes you hear. Hummingbird keeps the comfortable range and uses it for every alarm melody.",
+  "holdToHum": "Hold and trace",
+  "profileTitle": "Profile",
+  "nameLabel": "Name",
+  "saveName": "Save name",
+  "settings": "Settings",
+  "darkMode": "Dark mode",
+  "language": "Language",
+  "languageEnglish": "English",
+  "languagePortuguese": "Português",
+  "languageSpanish": "Español",
+  "savedOnDevice": "Your voice type and alarms stay on this phone.",
+  "wakeWithMelody": "Wake up with your melody",
+  "stop": "Stop",
+  "humToStop": "Or hum the shape above the button.",
+  "am": "AM",
+  "pm": "PM",
+  "melodyMorning": "Morning Light",
+  "melodyMorningDetail": "Soft and bright",
+  "melodyOcean": "Ocean Breeze",
+  "melodyOceanDetail": "Easy and rolling",
+  "melodySunrise": "Sunrise",
+  "melodySunriseDetail": "Bright and steady",
+  "difficultyEasy": "Easy",
+  "difficultyMedium": "Medium",
+  "difficultyHard": "Hard",
+  "toleranceRelaxed": "Relaxed",
+  "toleranceNormal": "Normal",
+  "toleranceStrict": "Strict",
+  "humMatched": "That matches {melody}.",
+  "@humMatched": {
+    "placeholders": {
+      "melody": { "type": "String" }
+    }
+  },
+  "humMissed": "Not close enough for {tolerance}. Follow the shape a little more carefully.",
+  "@humMissed": {
+    "placeholders": {
+      "tolerance": { "type": "String" }
+    }
+  },
+  "humTooShort": "Hum a little longer.",
+  "practiceTarget": "Practice  ·  {melody}  ·  {difficulty}  ·  {tolerance}",
+  "@practiceTarget": {
+    "placeholders": {
+      "melody": { "type": "String" },
+      "difficulty": { "type": "String" },
+      "tolerance": { "type": "String" }
+    }
+  },
+  "rangeSpan": "{low} to {high}",
+  "@rangeSpan": {
+    "placeholders": {
+      "low": { "type": "String" },
+      "high": { "type": "String" }
+    }
+  },
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "logIn": "Log in",
+  "invalidEmail": "Enter a valid email.",
+  "shortPassword": "Use at least 6 characters.",
+  "passwordMismatch": "Those passwords do not match.",
+  "accountExists": "An account with that email already exists. Log in instead.",
+  "wrongLogin": "That email or password does not match.",
+  "genderTitle": "How should we tune your melodies?",
+  "genderBody": "This stays on your phone and helps pick a comfortable range.",
+  "male": "Male",
+  "female": "Female",
+  "voiceListenBody": "Each note plays, then you hum it back. A checkmark means we heard you. Tap Next for the following note.",
+  "startVoiceTest": "Start voice test",
+  "listening": "Listening...",
+  "couldNotHear": "We could not hear a clear note. Try again in a quieter spot.",
+  "yourVoiceType": "Your voice type",
+  "voiceSoprano": "Soprano",
+  "voiceAlto": "Alto",
+  "voiceTenor": "Tenor",
+  "voiceBass": "Bass",
+  "permissionsTitle": "Let the alarm ring",
+  "permissionsBody": "Hummingbird needs permission to ring when the phone is closed or locked, with exact alarms and a full-screen alert.",
+  "permissionsAlarm": "Play with the phone closed",
+  "permissionsNotification": "Show the alarm on the lock screen",
+  "permissionsMicrophone": "Hear your hum",
+  "allowAndContinue": "Allow and continue",
+  "melodyPlaying": "Your melody is playing",
+  "humItBack": "Hum it back",
+  "choiceIn": "Snooze and cancel appear in {seconds}s",
+  "@choiceIn": {
+    "placeholders": {
+      "seconds": { "type": "int" }
+    }
+  },
+  "snooze": "Snooze",
+  "cancelAlarm": "Cancel",
+  "snoozeLength": "Snooze length",
+  "snoozeMinutes": "{minutes} minutes",
+  "@snoozeMinutes": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  },
+  "melodyForVoice": "Melodies for {voice}",
+  "@melodyForVoice": {
+    "placeholders": {
+      "voice": { "type": "String" }
+    }
+  },
+  "logOut": "Log out",
+  "voiceOnProfile": "{gender} · {voice}",
+  "@voiceOnProfile": {
+    "placeholders": {
+      "gender": { "type": "String" },
+      "voice": { "type": "String" }
+    }
+  },
+  "introTitle": "A quick question",
+  "introBody": "Answer one short question so your alarms use melodies that fit your voice.",
+  "hourSystem": "Hour system",
+  "hour24": "24-hour",
+  "hour12": "AM/PM",
+  "alarmName": "Alarm name",
+  "alarmNameHint": "Morning",
+  "micPermissionTitle": "Microphone",
+  "micPermissionBody": "Hummingbird uses the microphone for a short voice test, and later to hear you hum the alarm melody.",
+  "allowMicrophone": "Allow microphone",
+  "editDetails": "Edit",
+  "alarmOn": "Alarm on",
+  "alarmOff": "Alarm off",
+  "findYourVoice": "Find your voice",
+  "humTheNote": "Hum the note you hear.",
+  "yourVoiceProfile": "Your voice profile",
+  "comfortableRange": "Comfortable range: {low}–{high}",
+  "@comfortableRange": {
+    "placeholders": {
+      "low": { "type": "String" },
+      "high": { "type": "String" }
+    }
+  },
+  "adaptedToRange": "Your melodies will be adapted to this range.",
+  "retakeVoiceTest": "Retake Voice Test",
+  "voiceTypeLine": "Voice type: {voice}",
+  "@voiceTypeLine": {
+    "placeholders": {
+      "voice": { "type": "String" }
+    }
+  },
+  "genderLine": "Gender: {gender}",
+  "@genderLine": {
+    "placeholders": {
+      "gender": { "type": "String" }
+    }
+  },
+  "lastTested": "Last tested: {date}",
+  "@lastTested": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "voiceProfile": "Voice profile",
+  "voiceTestNeeded": "Take the voice test so melodies stay in a comfortable range.",
+  "shakeToStop": "Having trouble waking up? Shake the phone for 4 seconds.",
+  "holdToStop": "Press and hold for 4 seconds",
+  "whatsYourName": "What's your name?",
+  "nameHint": "Your name",
+  "changeScene": "Change picture",
+  "shakeOnboardTitle": "Another way to stop",
+  "shakeOnboardBody": "You can always stop an alarm by shaking the phone for 4 seconds straight. Humming still works too.",
+  "shakeAlways": "Or shake the phone for 4 seconds",
+  "easierMelody": "Trying a shorter melody.",
+  "vibrateWithAlarm": "Vibrate when the alarm rings",
+  "tryAgain": "Try again"
+}
